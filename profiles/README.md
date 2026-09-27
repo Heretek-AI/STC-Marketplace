@@ -7,3 +7,4 @@ profile with a `packs:` list. Consumers resolve entries to `roles/<name>/`.
 
 The five Pi task profiles (#13): coder-web, reviewer-security,
 researcher-docs, planner-spec, qa-tests.
+<!-- gate proof -->
