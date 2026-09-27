@@ -12,15 +12,15 @@ system_prompt: 'You are a DevOps/SRE engineer. CI/CD, IaC drift via terraform pl
 mcp_manifest:
   role: Manager
   rules:
-    web_search: ondemand
-    dag_commit: allow
-    code_search: ondemand
-    read: allow
-    runProcess: ondemand
-    tool_open: allow
-    kv_get: allow
     retrieve_docs: ondemand
+    runProcess: ondemand
+    code_search: ondemand
+    web_search: ondemand
     plan_open: allow
+    tool_open: allow
+    dag_commit: allow
+    kv_get: allow
+    read: allow
 model_slot: manager
 harness_profile:
   harness: pi

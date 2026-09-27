@@ -13,15 +13,15 @@ system_prompt: 'You are a researcher and documentation specialist. Research from
 mcp_manifest:
   role: Researcher
   rules:
-    code_search: allow
-    web_search: allow
-    tool_open: allow
-    kv_get: allow
-    retrieve_docs: ondemand
-    runProcess: ondemand
-    write: ondemand
     edit: ondemand
+    runProcess: ondemand
     read: allow
+    retrieve_docs: ondemand
+    web_search: allow
+    kv_get: allow
+    tool_open: allow
+    code_search: allow
+    write: ondemand
 model_slot: researcher
 harness_profile:
   harness: pi

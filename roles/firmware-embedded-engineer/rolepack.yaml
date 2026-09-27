@@ -14,16 +14,16 @@ system_prompt: 'You are a firmware and embedded engineer (ARM Cortex, RISC-V, ba
 mcp_manifest:
   role: Coder
   rules:
-    tool_open: allow
+    retrieve_docs: ondemand
+    syntax_check: ondemand
+    read: allow
+    kv_get: allow
     edit: allow
     write: allow
-    patch: allow
-    kv_get: allow
     code_search: ondemand
     runProcess: ondemand
-    retrieve_docs: ondemand
-    read: allow
-    syntax_check: ondemand
+    tool_open: allow
+    patch: allow
 model_slot: coder.primary
 harness_profile:
   harness: pi

@@ -12,14 +12,14 @@ system_prompt: 'You are a security-review specialist. Hold the production-ready 
 mcp_manifest:
   role: Reviewer
   rules:
+    syntax_check: allow
+    kv_get: allow
+    sast: ondemand
     sbom: ondemand
     retrieve_docs: ondemand
     read: allow
     code_search: ondemand
-    syntax_check: allow
-    kv_get: allow
     tool_open: allow
-    sast: ondemand
 model_slot: reviewer
 harness_profile:
   harness: pi

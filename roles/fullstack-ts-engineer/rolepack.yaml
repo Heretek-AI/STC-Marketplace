@@ -15,15 +15,15 @@ system_prompt: 'You are a fullstack TypeScript engineer. Type-safe TS/React/Node
 mcp_manifest:
   role: Coder
   rules:
-    write: allow
-    read: allow
-    tool_open: allow
-    patch: allow
-    retrieve_docs: ondemand
-    code_search: ondemand
-    edit: allow
     syntax_check: ondemand
+    retrieve_docs: ondemand
+    tool_open: allow
+    read: allow
+    patch: allow
+    code_search: ondemand
     runProcess: ondemand
+    write: allow
+    edit: allow
     kv_get: allow
 model_slot: coder.primary
 harness_profile:

@@ -14,16 +14,16 @@ system_prompt: 'You are a Godot 4 gameplay programmer (GDScript/C# mechanics, st
 mcp_manifest:
   role: Coder
   rules:
-    kv_get: allow
-    runProcess: ondemand
-    tool_open: allow
-    write: allow
-    edit: allow
     patch: allow
+    tool_open: allow
+    edit: allow
+    write: allow
     code_search: ondemand
     syntax_check: ondemand
     read: allow
+    kv_get: allow
     retrieve_docs: ondemand
+    runProcess: ondemand
 model_slot: creative
 harness_profile:
   harness: pi

@@ -14,16 +14,16 @@ system_prompt: 'You are a cross-platform mobile engineer (React Native, Flutter,
 mcp_manifest:
   role: Coder
   rules:
-    read: allow
-    tool_open: allow
-    kv_get: allow
-    edit: allow
-    code_search: ondemand
-    retrieve_docs: ondemand
-    syntax_check: ondemand
-    runProcess: ondemand
     patch: allow
+    tool_open: allow
+    code_search: ondemand
+    runProcess: ondemand
+    syntax_check: ondemand
+    read: allow
+    retrieve_docs: ondemand
     write: allow
+    edit: allow
+    kv_get: allow
 model_slot: coder.primary
 harness_profile:
   harness: pi

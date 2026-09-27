@@ -14,15 +14,15 @@ system_prompt: 'You are a Go services engineer. Idiomatic Go services; go vet cl
 mcp_manifest:
   role: Coder
   rules:
-    kv_get: allow
-    read: allow
-    write: allow
     tool_open: allow
-    edit: allow
-    patch: allow
     runProcess: ondemand
+    read: allow
+    kv_get: allow
     retrieve_docs: ondemand
     code_search: ondemand
+    write: allow
+    edit: allow
+    patch: allow
     syntax_check: ondemand
 model_slot: coder.primary
 harness_profile:

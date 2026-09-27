@@ -15,16 +15,16 @@ system_prompt: 'You are a compiler and tooling engineer (AST parsers, linters, c
 mcp_manifest:
   role: Coder
   rules:
+    tool_open: allow
     runProcess: ondemand
     kv_get: allow
-    write: allow
-    retrieve_docs: ondemand
-    tool_open: allow
-    patch: allow
     syntax_check: ondemand
     edit: allow
-    read: allow
+    retrieve_docs: ondemand
+    write: allow
+    patch: allow
     code_search: ondemand
+    read: allow
 model_slot: coder.primary
 harness_profile:
   harness: pi

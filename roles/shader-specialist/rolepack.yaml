@@ -12,16 +12,16 @@ system_prompt: 'You are a shader specialist (HLSL/GLSL vertex, fragment, compute
 mcp_manifest:
   role: Coder
   rules:
-    kv_get: allow
-    runProcess: ondemand
-    code_search: ondemand
-    tool_open: allow
-    read: allow
-    write: allow
-    retrieve_docs: ondemand
-    edit: allow
-    patch: allow
     syntax_check: ondemand
+    read: allow
+    patch: allow
+    edit: allow
+    runProcess: ondemand
+    tool_open: allow
+    retrieve_docs: ondemand
+    write: allow
+    code_search: ondemand
+    kv_get: allow
 model_slot: creative
 harness_profile:
   harness: pi

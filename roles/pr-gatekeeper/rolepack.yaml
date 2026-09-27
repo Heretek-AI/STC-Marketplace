@@ -11,13 +11,13 @@ system_prompt: 'You are a PR gatekeeper. Binary merge verdicts from evidence onl
 mcp_manifest:
   role: Reviewer
   rules:
-    syntax_check: allow
-    sast: ondemand
-    kv_get: allow
-    code_search: ondemand
-    read: allow
     tool_open: allow
+    sast: ondemand
+    code_search: ondemand
     sbom: ondemand
+    read: allow
+    kv_get: allow
+    syntax_check: allow
     retrieve_docs: ondemand
 model_slot: reviewer
 harness_profile:

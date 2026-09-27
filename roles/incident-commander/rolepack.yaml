@@ -12,12 +12,12 @@ mcp_manifest:
   role: Researcher
   rules:
     read: allow
-    tool_open: allow
+    runProcess: ondemand
     web_search: allow
+    code_search: allow
+    tool_open: allow
     kv_get: allow
     retrieve_docs: ondemand
-    code_search: allow
-    runProcess: ondemand
 model_slot: manager
 harness_profile:
   harness: omp

@@ -13,14 +13,14 @@ system_prompt: 'You are the QA director. Define gates and own sign-off: block on
 mcp_manifest:
   role: Reviewer
   rules:
-    kv_get: allow
     read: allow
     syntax_check: allow
-    sbom: ondemand
     retrieve_docs: ondemand
     sast: ondemand
-    code_search: ondemand
+    sbom: ondemand
+    kv_get: allow
     tool_open: allow
+    code_search: ondemand
 model_slot: reviewer
 harness_profile:
   harness: omp

@@ -11,16 +11,16 @@ system_prompt: 'You are an audio designer (SFX, ambience). Analyze RMS, centroid
 mcp_manifest:
   role: Coder
   rules:
-    write: allow
-    edit: allow
-    tool_open: allow
-    kv_get: allow
-    read: allow
-    patch: allow
-    retrieve_docs: ondemand
-    code_search: ondemand
-    syntax_check: ondemand
     runProcess: ondemand
+    syntax_check: ondemand
+    kv_get: allow
+    edit: allow
+    patch: allow
+    tool_open: allow
+    code_search: ondemand
+    write: allow
+    read: allow
+    retrieve_docs: ondemand
 model_slot: creative
 harness_profile:
   harness: pi

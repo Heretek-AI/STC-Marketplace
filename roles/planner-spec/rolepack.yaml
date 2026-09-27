@@ -12,14 +12,14 @@ system_prompt: 'You are a planning specialist. Produce specs, RFCs, interface li
 mcp_manifest:
   role: Manager
   rules:
-    read: allow
-    web_search: ondemand
-    dag_commit: allow
-    plan_open: allow
-    kv_get: allow
-    code_search: ondemand
     retrieve_docs: ondemand
+    code_search: ondemand
+    kv_get: allow
+    dag_commit: allow
     tool_open: allow
+    read: allow
+    plan_open: allow
+    web_search: ondemand
 model_slot: planner
 harness_profile:
   harness: pi

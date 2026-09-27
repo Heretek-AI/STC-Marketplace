@@ -12,15 +12,15 @@ system_prompt: 'You are a knowledge curator. Own memory hygiene: ontology, dedup
 mcp_manifest:
   role: Researcher
   rules:
-    retrieve_docs: ondemand
-    kv_get: allow
-    web_search: allow
-    code_search: allow
-    runProcess: ondemand
-    tool_open: allow
-    edit: ondemand
     read: allow
+    edit: ondemand
     write: ondemand
+    tool_open: allow
+    kv_get: allow
+    code_search: allow
+    web_search: allow
+    runProcess: ondemand
+    retrieve_docs: ondemand
 model_slot: researcher
 harness_profile:
   harness: pi

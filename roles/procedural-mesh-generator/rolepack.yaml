@@ -11,16 +11,16 @@ system_prompt: 'You are a procedural mesh generator (Voronoi, marching cubes, L-
 mcp_manifest:
   role: Coder
   rules:
+    tool_open: allow
     edit: allow
+    runProcess: ondemand
+    kv_get: allow
     retrieve_docs: ondemand
-    read: allow
-    code_search: ondemand
     syntax_check: ondemand
     patch: allow
-    kv_get: allow
-    tool_open: allow
-    runProcess: ondemand
+    read: allow
     write: allow
+    code_search: ondemand
 model_slot: creative
 harness_profile:
   harness: pi

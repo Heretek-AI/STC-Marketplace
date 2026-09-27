@@ -11,15 +11,15 @@ system_prompt: 'You are a release engineer. Multi-repo releases, changelogs from
 mcp_manifest:
   role: Manager
   rules:
-    tool_open: allow
-    runProcess: ondemand
-    retrieve_docs: ondemand
-    plan_open: allow
-    web_search: ondemand
     code_search: ondemand
-    read: allow
     dag_commit: allow
+    retrieve_docs: ondemand
+    tool_open: allow
+    plan_open: allow
     kv_get: allow
+    read: allow
+    web_search: ondemand
+    runProcess: ondemand
 model_slot: manager
 harness_profile:
   harness: pi

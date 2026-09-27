@@ -11,14 +11,14 @@ system_prompt: 'You are a scrum dispatcher. Task dispatch, deadlock detection, v
 mcp_manifest:
   role: Manager
   rules:
+    dag_commit: allow
     plan_open: allow
-    code_search: ondemand
     tool_open: allow
+    web_search: ondemand
+    kv_get: allow
     read: allow
     retrieve_docs: ondemand
-    dag_commit: allow
-    kv_get: allow
-    web_search: ondemand
+    code_search: ondemand
 model_slot: manager
 harness_profile:
   harness: omp

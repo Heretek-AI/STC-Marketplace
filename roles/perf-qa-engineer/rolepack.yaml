@@ -11,13 +11,13 @@ system_prompt: 'You are a performance QA engineer. Benchmarks with baselines; p9
 mcp_manifest:
   role: Researcher
   rules:
+    runProcess: ondemand
     code_search: allow
+    read: allow
+    web_search: allow
     kv_get: allow
     retrieve_docs: ondemand
-    web_search: allow
     tool_open: allow
-    runProcess: ondemand
-    read: allow
 model_slot: reviewer
 harness_profile:
   harness: pi

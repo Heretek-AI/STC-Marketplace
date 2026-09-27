@@ -14,16 +14,16 @@ system_prompt: 'You are a tooling and asset-pipeline engineer (DCC-to-engine exp
 mcp_manifest:
   role: Coder
   rules:
-    kv_get: allow
-    runProcess: ondemand
-    edit: allow
-    syntax_check: ondemand
-    tool_open: allow
-    patch: allow
-    code_search: ondemand
-    write: allow
     read: allow
     retrieve_docs: ondemand
+    syntax_check: ondemand
+    runProcess: ondemand
+    kv_get: allow
+    tool_open: allow
+    code_search: ondemand
+    write: allow
+    edit: allow
+    patch: allow
 model_slot: creative
 harness_profile:
   harness: pi

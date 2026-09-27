@@ -13,14 +13,14 @@ system_prompt: 'You are a systems architect. Own end-to-end architecture: module
 mcp_manifest:
   role: Manager
   rules:
-    tool_open: allow
     dag_commit: allow
-    web_search: ondemand
-    plan_open: allow
-    read: allow
     retrieve_docs: ondemand
+    tool_open: allow
     kv_get: allow
+    web_search: ondemand
+    read: allow
     code_search: ondemand
+    plan_open: allow
 model_slot: architect
 harness_profile:
   harness: omp

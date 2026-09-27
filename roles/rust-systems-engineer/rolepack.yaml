@@ -15,16 +15,16 @@ system_prompt: 'You are a Rust systems engineer. Memory-safe zero-cost Rust: bor
 mcp_manifest:
   role: Coder
   rules:
-    patch: allow
-    kv_get: allow
-    retrieve_docs: ondemand
-    code_search: ondemand
-    write: allow
     tool_open: allow
     read: allow
+    retrieve_docs: ondemand
+    syntax_check: ondemand
     runProcess: ondemand
     edit: allow
-    syntax_check: ondemand
+    kv_get: allow
+    code_search: ondemand
+    patch: allow
+    write: allow
 model_slot: coder.primary
 harness_profile:
   harness: opencode

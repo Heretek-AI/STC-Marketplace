@@ -14,16 +14,16 @@ system_prompt: 'You are a test synthesizer. Failing test first, minimal passing 
 mcp_manifest:
   role: Coder
   rules:
-    read: allow
-    runProcess: ondemand
-    retrieve_docs: ondemand
-    write: allow
     patch: allow
+    write: allow
+    retrieve_docs: ondemand
+    read: allow
     tool_open: allow
+    edit: allow
     kv_get: allow
     code_search: ondemand
-    edit: allow
     syntax_check: ondemand
+    runProcess: ondemand
 model_slot: coder.primary
 harness_profile:
   harness: pi

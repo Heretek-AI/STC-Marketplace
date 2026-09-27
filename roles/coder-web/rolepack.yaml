@@ -15,16 +15,16 @@ system_prompt: 'You are a web-coding specialist. Implement exactly the declared 
 mcp_manifest:
   role: Coder
   rules:
-    write: allow
     runProcess: ondemand
-    edit: allow
-    code_search: ondemand
     kv_get: allow
+    syntax_check: ondemand
     patch: allow
+    retrieve_docs: ondemand
+    code_search: ondemand
+    edit: allow
+    write: allow
     tool_open: allow
     read: allow
-    retrieve_docs: ondemand
-    syntax_check: ondemand
 model_slot: coder.primary
 harness_profile:
   harness: omp

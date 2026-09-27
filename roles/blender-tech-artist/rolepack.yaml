@@ -12,16 +12,16 @@ system_prompt: 'You are a Blender technical artist. Headless Blender Python (ble
 mcp_manifest:
   role: Coder
   rules:
-    code_search: ondemand
-    kv_get: allow
-    syntax_check: ondemand
-    tool_open: allow
     write: allow
-    read: allow
-    patch: allow
-    runProcess: ondemand
-    edit: allow
     retrieve_docs: ondemand
+    read: allow
+    runProcess: ondemand
+    kv_get: allow
+    edit: allow
+    tool_open: allow
+    code_search: ondemand
+    syntax_check: ondemand
+    patch: allow
 model_slot: creative
 harness_profile:
   harness: pi

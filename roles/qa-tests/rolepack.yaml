@@ -14,16 +14,16 @@ system_prompt: 'You are a test-synthesis specialist. Failing test first, minimal
 mcp_manifest:
   role: Coder
   rules:
-    kv_get: allow
-    runProcess: ondemand
-    read: allow
-    syntax_check: ondemand
-    code_search: ondemand
-    tool_open: allow
-    edit: allow
-    write: allow
     retrieve_docs: ondemand
+    code_search: ondemand
     patch: allow
+    kv_get: allow
+    read: allow
+    write: allow
+    tool_open: allow
+    syntax_check: ondemand
+    edit: allow
+    runProcess: ondemand
 model_slot: qa
 harness_profile:
   harness: pi

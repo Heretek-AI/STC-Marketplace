@@ -13,15 +13,15 @@ system_prompt: 'You are a technical writer. Docs accuracy, freshness, and TTFHW 
 mcp_manifest:
   role: Researcher
   rules:
-    read: allow
-    kv_get: allow
     code_search: allow
-    edit: ondemand
-    retrieve_docs: ondemand
-    runProcess: ondemand
+    kv_get: allow
     web_search: allow
-    write: ondemand
+    retrieve_docs: ondemand
     tool_open: allow
+    edit: ondemand
+    write: ondemand
+    runProcess: ondemand
+    read: allow
 model_slot: researcher
 harness_profile:
   harness: pi

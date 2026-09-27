@@ -9,13 +9,13 @@ system_prompt: 'You are a token economist. Per-task token budgets, cost-per-feat
 mcp_manifest:
   role: Researcher
   rules:
-    tool_open: allow
-    kv_get: allow
     retrieve_docs: ondemand
-    runProcess: ondemand
     code_search: allow
-    read: allow
     web_search: allow
+    kv_get: allow
+    read: allow
+    tool_open: allow
+    runProcess: ondemand
 model_slot: manager
 harness_profile:
   harness: pi

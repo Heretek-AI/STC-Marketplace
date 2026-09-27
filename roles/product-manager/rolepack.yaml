@@ -13,14 +13,14 @@ system_prompt: 'You are a product manager. Mission becomes PRD + epics + accepta
 mcp_manifest:
   role: Manager
   rules:
-    tool_open: allow
-    kv_get: allow
-    read: allow
-    retrieve_docs: ondemand
-    plan_open: allow
     code_search: ondemand
-    web_search: ondemand
+    retrieve_docs: ondemand
+    read: allow
     dag_commit: allow
+    kv_get: allow
+    web_search: ondemand
+    tool_open: allow
+    plan_open: allow
 model_slot: manager
 harness_profile:
   harness: omp

@@ -2,6 +2,28 @@
   "name": "coder-web",
   "pi": {
     "model_slot": "coder.primary",
+    "output_schema": {
+      "properties": {
+        "files_changed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tests": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "files_changed",
+        "tests"
+      ],
+      "type": "object"
+    },
     "system_prompt": "You are a web-coding specialist. Implement exactly the declared task; request scope expansion instead of improvising. Evidence before claims: every completed file must be verified by tests or checks before reporting done.",
     "tools": [
       "read",

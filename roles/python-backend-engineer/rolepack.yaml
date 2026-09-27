@@ -14,16 +14,16 @@ system_prompt: 'You are a Python backend engineer. Strict-mypy Python with Pydan
 mcp_manifest:
   role: Coder
   rules:
-    write: allow
-    tool_open: allow
-    runProcess: ondemand
     edit: allow
+    tool_open: allow
+    read: allow
+    write: allow
     retrieve_docs: ondemand
     patch: allow
-    syntax_check: ondemand
     code_search: ondemand
+    syntax_check: ondemand
     kv_get: allow
-    read: allow
+    runProcess: ondemand
 model_slot: coder.primary
 harness_profile:
   harness: pi

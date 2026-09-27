@@ -14,16 +14,16 @@ system_prompt: 'You are a DBA and data engineer. Migrations are expand-migrate-c
 mcp_manifest:
   role: Coder
   rules:
+    code_search: ondemand
+    patch: allow
     tool_open: allow
+    syntax_check: ondemand
+    read: allow
+    edit: allow
     runProcess: ondemand
     kv_get: allow
-    edit: allow
     retrieve_docs: ondemand
-    code_search: ondemand
-    read: allow
-    syntax_check: ondemand
     write: allow
-    patch: allow
 model_slot: coder.primary
 harness_profile:
   harness: pi
