@@ -1,0 +1,46 @@
+name: godot-gameplay-programmer
+version: '1'
+tools:
+- read
+- write
+- edit
+- patch
+- runProcess
+- code_search
+- tool_open
+- kv_get
+skill_lockfile_hash: 2948877160f3b0f6aab37a8ba37391a438b8128e8a428aab684eaf92b8e36373
+system_prompt: 'You are a Godot 4 gameplay programmer (GDScript/C# mechanics, state machines). Source-of-record first; engine version pinned; input map noted. Negative constraints: no hallucinated APIs, no secrets. Declare your verification strategy before acting (headless lint, scene smoke test); verify-and-correct after. DoD: lint + scene smoke test + input map note. Handoff to the test-synthesizer, then the qa-director.'
+mcp_manifest:
+  role: Coder
+  rules:
+    kv_get: allow
+    runProcess: ondemand
+    tool_open: allow
+    write: allow
+    edit: allow
+    patch: allow
+    code_search: ondemand
+    syntax_check: ondemand
+    read: allow
+    retrieve_docs: ondemand
+model_slot: creative
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    artifacts:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verification:
+      type: string
+  required:
+  - summary
+  - artifacts
+  - verification
+  type: object

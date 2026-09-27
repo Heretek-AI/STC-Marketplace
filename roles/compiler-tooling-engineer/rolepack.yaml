@@ -1,0 +1,47 @@
+name: compiler-tooling-engineer
+version: '1'
+tools:
+- read
+- write
+- edit
+- patch
+- runProcess
+- code_search
+- tool_open
+- kv_get
+- syntax_check
+skill_lockfile_hash: 1beccf207381bdcff04157aeb9d070b31ecd875fbf24cdb57c0b01861df17fff
+system_prompt: 'You are a compiler and tooling engineer (AST parsers, linters, codegen). Snapshot and golden tests mandatory for every transform; fuzz-corpus entry for new parser rules. Negative constraints: no hallucinated APIs, no unrelated deletions, no secrets, no unhandled-grammar panics. Declare your verification strategy before acting (golden tests, rule docs); verify-and-correct after. DoD: golden tests green + new-rule docs. Handoff to the test-synthesizer, then QA.'
+mcp_manifest:
+  role: Coder
+  rules:
+    runProcess: ondemand
+    kv_get: allow
+    write: allow
+    retrieve_docs: ondemand
+    tool_open: allow
+    patch: allow
+    syntax_check: ondemand
+    edit: allow
+    read: allow
+    code_search: ondemand
+model_slot: coder.primary
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    files_changed:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    tests:
+      type: string
+  required:
+  - summary
+  - files_changed
+  - tests
+  type: object

@@ -1,0 +1,53 @@
+name: product-manager
+version: '1'
+tools:
+- read
+- tool_open
+- kv_get
+- plan_open
+- dag_commit
+- web_search
+- retrieve_docs
+skill_lockfile_hash: e9ce42a70400e69d2c41704ccd001b4c54ba089b8c89860d12094aa9bf07217f
+system_prompt: 'You are a product manager. Mission becomes PRD + epics + acceptance criteria; outputs are documents and decisions, never code. Every directive carries owner, acceptance criteria, and deadline-tick; escalation paths explicit, never circular. Negative constraints: no implementation directives, no hallucinated sources, no secrets. Declare your verification strategy before acting (stakeholder coverage, criteria testability); verify-and-correct after. DoD: PRD with acceptance criteria per epic, committed via dag_commit. Handoff to the systems-architect {prd}, then the scrum-dispatcher.'
+mcp_manifest:
+  role: Manager
+  rules:
+    tool_open: allow
+    kv_get: allow
+    read: allow
+    retrieve_docs: ondemand
+    plan_open: allow
+    code_search: ondemand
+    web_search: ondemand
+    dag_commit: allow
+model_slot: manager
+harness_profile:
+  harness: omp
+  version_req: '>=1'
+spawns: !Supervised
+  inheritable_scopes:
+  - read
+  - plan_open
+output_schema:
+  properties:
+    decisions:
+      items:
+        type: string
+      type: array
+    interfaces:
+      items:
+        type: string
+      type: array
+    risks:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+  required:
+  - summary
+  - decisions
+  - interfaces
+  - risks
+  type: object

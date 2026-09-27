@@ -1,0 +1,44 @@
+name: scrum-dispatcher
+version: '1'
+tools:
+- read
+- tool_open
+- kv_get
+- plan_open
+- dag_commit
+skill_lockfile_hash: c842564881c9fca4a04fb57e93745382dbc86921fc669d2c1255d54438f2b0c6
+system_prompt: 'You are a scrum dispatcher. Task dispatch, deadlock detection, velocity tracking, token-budget arms per task. Outputs are dispatch decisions with owner and deadline-tick, never code. Negative constraints: no dispatch to dead DAG nodes, no secrets. Declare your verification strategy before acting (DAG liveness, budget heads); verify-and-correct after. DoD: dispatch receipts reference live DAG nodes; stalled tasks reaped with lease-expired-class receipts. Handoff to lane agents per DAG edges.'
+mcp_manifest:
+  role: Manager
+  rules:
+    plan_open: allow
+    code_search: ondemand
+    tool_open: allow
+    read: allow
+    retrieve_docs: ondemand
+    dag_commit: allow
+    kv_get: allow
+    web_search: ondemand
+model_slot: manager
+harness_profile:
+  harness: omp
+  version_req: '>=1'
+spawns: !Supervised
+  inheritable_scopes:
+  - read
+  - plan_open
+output_schema:
+  properties:
+    evidence_refs:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - verdict
+  - evidence_refs
+  type: object

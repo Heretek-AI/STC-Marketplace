@@ -1,0 +1,6 @@
+pack_name: reviewer-security
+pack_version: '1'
+pack_hash: 482a71137471c7e9b926e7fa6ef048b398ff4f0b77b60eb65592fd15d54ab59e
+assets:
+  skills:
+    profile: 4ec76f63dd4c7b76ba9ac0bc309df76e042f319e7772560fa35c2c6b273c4b6c

@@ -1,0 +1,6 @@
+pack_name: pr-gatekeeper
+pack_version: '1'
+pack_hash: af7dc88fe0959be37efe917ead9b0a4eff7463458597ade1dfaf4f8d2332675d
+assets:
+  skills:
+    profile: c049b6005412836b70bf64c6f06c0b6868350d96f9775312d2c51809d94cda1f

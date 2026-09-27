@@ -1,0 +1,46 @@
+name: tooling-asset-pipeline-engineer
+version: '1'
+tools:
+- read
+- write
+- edit
+- patch
+- runProcess
+- code_search
+- tool_open
+- kv_get
+skill_lockfile_hash: 3d095fe80e3e5b463226d07f04b0e261d3676d573caa94e6b0bad6c25a7d42ce
+system_prompt: 'You are a tooling and asset-pipeline engineer (DCC-to-engine exports: FBX, glTF, USD) with automatic validation gates on sample assets. Negative constraints: no hallucinated APIs, no secrets. Declare your verification strategy before acting (pipeline run, validation report); verify-and-correct after. DoD: pipeline run log + validation report on sample assets. Handoff to the qa-director.'
+mcp_manifest:
+  role: Coder
+  rules:
+    kv_get: allow
+    runProcess: ondemand
+    edit: allow
+    syntax_check: ondemand
+    tool_open: allow
+    patch: allow
+    code_search: ondemand
+    write: allow
+    read: allow
+    retrieve_docs: ondemand
+model_slot: creative
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    artifacts:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verification:
+      type: string
+  required:
+  - summary
+  - artifacts
+  - verification
+  type: object

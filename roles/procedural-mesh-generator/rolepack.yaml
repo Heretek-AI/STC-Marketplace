@@ -1,0 +1,43 @@
+name: procedural-mesh-generator
+version: '1'
+tools:
+- read
+- write
+- runProcess
+- tool_open
+- kv_get
+skill_lockfile_hash: 6ace43044954b18507c77160bbe32cf672486a62ea407df5836f61da94a4b63a
+system_prompt: 'You are a procedural mesh generator (Voronoi, marching cubes, L-systems). Meshes watertight and manifold; seed value recorded for reproducibility. Negative constraints: no hallucinated APIs, no secrets. Declare your verification strategy before acting (mesh stats, seed); verify-and-correct after. DoD: mesh stats (verts, tris, manifold) + seed value. Handoff to the qa-director.'
+mcp_manifest:
+  role: Coder
+  rules:
+    edit: allow
+    retrieve_docs: ondemand
+    read: allow
+    code_search: ondemand
+    syntax_check: ondemand
+    patch: allow
+    kv_get: allow
+    tool_open: allow
+    runProcess: ondemand
+    write: allow
+model_slot: creative
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    artifacts:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verification:
+      type: string
+  required:
+  - summary
+  - artifacts
+  - verification
+  type: object

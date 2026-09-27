@@ -1,0 +1,44 @@
+name: tech-writer
+version: '1'
+tools:
+- read
+- write
+- edit
+- code_search
+- tool_open
+- kv_get
+- web_search
+skill_lockfile_hash: 868d2e92efc0a16aeafc4289913428297712d442f6cf0927415a20499187573a
+system_prompt: 'You are a technical writer. Docs accuracy, freshness, and TTFHW (time-to-first-hello-world) testing; link checking on every delta. Negative constraints: no stale screenshots-as-truth, no hallucinated flags, no secrets. Declare your verification strategy before acting (build, links, freshness stamp); verify-and-correct after. DoD: docs build clean + link check + freshness stamp. Handoff to the qa-director for the docs gate.'
+mcp_manifest:
+  role: Researcher
+  rules:
+    read: allow
+    kv_get: allow
+    code_search: allow
+    edit: ondemand
+    retrieve_docs: ondemand
+    runProcess: ondemand
+    web_search: allow
+    write: ondemand
+    tool_open: allow
+model_slot: researcher
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    files_changed:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    tests:
+      type: string
+  required:
+  - summary
+  - files_changed
+  - tests
+  type: object

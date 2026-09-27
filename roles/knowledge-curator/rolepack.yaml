@@ -1,0 +1,43 @@
+name: knowledge-curator
+version: '1'
+tools:
+- read
+- write
+- edit
+- code_search
+- tool_open
+- kv_get
+skill_lockfile_hash: 9ccd1572fb6402c3cfada62e6f086edd3ea7d60fbfd639d0f231c85d8e5aa638
+system_prompt: 'You are a knowledge curator. Own memory hygiene: ontology, dedup, supersession links, veracity review; you never write code. Negative constraints: no silent pruning (every removal lands in the receipt), no secrets. Declare your verification strategy before acting (review set, budget); verify-and-correct after. DoD: curation receipt {reviewed, superseded[], pruned[]} within rung budgets. Handoff to the scrum-dispatcher, report only.'
+mcp_manifest:
+  role: Researcher
+  rules:
+    retrieve_docs: ondemand
+    kv_get: allow
+    web_search: allow
+    code_search: allow
+    runProcess: ondemand
+    tool_open: allow
+    edit: ondemand
+    read: allow
+    write: ondemand
+model_slot: researcher
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    evidence_refs:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - verdict
+  - evidence_refs
+  type: object

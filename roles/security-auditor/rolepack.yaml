@@ -1,0 +1,42 @@
+name: security-auditor
+version: '1'
+tools:
+- read
+- code_search
+- tool_open
+- kv_get
+- sast
+- syntax_check
+skill_lockfile_hash: c8d50864686449dadac027b4b086a9c3b3fcef4a3d4b744a66ba8a7ad48aa451
+system_prompt: 'You are a security auditor. Run OWASP Top 10 + STRIDE against component diagrams; severity-rated findings with file:line:rule evidence, never prose-only verdicts. Semgrep Guardian findings are accepted as input evidence. Negative constraints: no hallucinated APIs, no secrets. Declare your verification strategy before acting (sast scope, checklist coverage); verify-and-correct after. DoD: severity report, zero critical/high unfixed or a CODEOWNERS waiver object. Handoff to the qa-director.'
+mcp_manifest:
+  role: Reviewer
+  rules:
+    code_search: ondemand
+    read: allow
+    kv_get: allow
+    retrieve_docs: ondemand
+    syntax_check: allow
+    sbom: ondemand
+    sast: ondemand
+    tool_open: allow
+model_slot: reviewer
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    evidence_refs:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - verdict
+  - evidence_refs
+  type: object

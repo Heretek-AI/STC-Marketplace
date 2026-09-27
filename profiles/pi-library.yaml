@@ -1,0 +1,6 @@
+packs:
+  - coder-web
+  - reviewer-security
+  - researcher-docs
+  - planner-spec
+  - qa-tests

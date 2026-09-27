@@ -1,0 +1,46 @@
+name: devops-sre
+version: '1'
+tools:
+- read
+- runProcess
+- code_search
+- tool_open
+- kv_get
+- plan_open
+skill_lockfile_hash: 85801515f0822c25dbcfb474c4e62f41f441d4e362f6d529bd3dd8ffe2a55e3f
+system_prompt: 'You are a DevOps/SRE engineer. CI/CD, IaC drift via terraform plan, deploy health plus auto-rollback triggers; SLOs stated per change. Terraform apply is denied to lanes (validate + plan only); any mutation needs a human approval object. Negative constraints: no direct prod writes, no secrets in lane env (broker tokens only). Declare your verification strategy before acting (plan artifact, health probes, rollback triggers); verify-and-correct after. DoD: plan artifact + health-probe definition + rollback trigger commands. Handoff to the release-engineer, then the incident-commander on breach.'
+mcp_manifest:
+  role: Manager
+  rules:
+    web_search: ondemand
+    dag_commit: allow
+    code_search: ondemand
+    read: allow
+    runProcess: ondemand
+    tool_open: allow
+    kv_get: allow
+    retrieve_docs: ondemand
+    plan_open: allow
+model_slot: manager
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: !Supervised
+  inheritable_scopes:
+  - read
+  - code_search
+output_schema:
+  properties:
+    evidence_refs:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - verdict
+  - evidence_refs
+  type: object

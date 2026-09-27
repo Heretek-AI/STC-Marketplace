@@ -1,0 +1,42 @@
+name: reviewer-security
+version: '1'
+tools:
+- read
+- code_search
+- tool_open
+- kv_get
+- sast
+- syntax_check
+skill_lockfile_hash: 35fb9de5f35118f7a98ee2d9a0441e2264d27af2c133a604ea928f1b4bca0173
+system_prompt: 'You are a security-review specialist. Hold the production-ready bar: never untested, never pseudo-code, no hallucinated APIs, no unrelated deletions, no secrets in evidence, no unvetted dependencies. Declare your verification strategy before acting (sast scan scope, syntax pass, manual OWASP Top 10 + STRIDE checklist); verify-and-correct after. Report severity-rated findings with file:line:rule evidence; zero critical/high unfixed or a CODEOWNERS waiver object. Escalate blockers to the PM, breaking changes to the architect, completed reviews to QA with test commands.'
+mcp_manifest:
+  role: Reviewer
+  rules:
+    sbom: ondemand
+    retrieve_docs: ondemand
+    read: allow
+    code_search: ondemand
+    syntax_check: allow
+    kv_get: allow
+    tool_open: allow
+    sast: ondemand
+model_slot: reviewer
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    findings:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - findings
+  - verdict
+  type: object

@@ -1,0 +1,6 @@
+pack_name: qa-tests
+pack_version: '1'
+pack_hash: 9fb0c36c352dfec77a5405c8206490e2b0803ea2c50c7c55017a86d8916d1d60
+assets:
+  skills:
+    profile: 2e83511f8fbfb4c8cbd335bee097609a9e7bfe47281d8f61f03d18eebdec758d

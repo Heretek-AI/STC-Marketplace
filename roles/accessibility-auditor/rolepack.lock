@@ -1,0 +1,6 @@
+pack_name: accessibility-auditor
+pack_version: '1'
+pack_hash: 0f7e167c89e2e3b74013df71daf27d85ed5f06636ca32ab51770b0fbe024b871
+assets:
+  skills:
+    profile: 375b2fe6935d2d25882adea030ebece261ec2ae4dd8ef25f569b35bf1371112d

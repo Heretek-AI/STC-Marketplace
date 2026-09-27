@@ -1,0 +1,6 @@
+pack_name: qa-director
+pack_version: '1'
+pack_hash: b5dfe6694bbdb52bb884b6233775df00e603ca8b8606002b03ca6443fcc6dead
+assets:
+  skills:
+    profile: cfe85b31bfdfec4d049974cf484cb835ff7a0f768986439c30061f9bc564bbac

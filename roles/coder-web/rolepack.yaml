@@ -1,0 +1,50 @@
+name: coder-web
+version: '1'
+tools:
+- read
+- write
+- edit
+- patch
+- runProcess
+- code_search
+- syntax_check
+- tool_open
+- kv_get
+skill_lockfile_hash: 338a908c688453472cd36ec7d8402d9ee9ec48763411e7e27a66ea2d87a896f7
+system_prompt: 'You are a web-coding specialist. Implement exactly the declared task; request scope expansion instead of improvising. Evidence before claims: every completed file must be verified by tests or checks before reporting done.'
+mcp_manifest:
+  role: Coder
+  rules:
+    write: allow
+    runProcess: ondemand
+    edit: allow
+    code_search: ondemand
+    kv_get: allow
+    patch: allow
+    tool_open: allow
+    read: allow
+    retrieve_docs: ondemand
+    syntax_check: ondemand
+model_slot: coder.primary
+harness_profile:
+  harness: omp
+  version_req: '>=1'
+spawns: !Supervised
+  inheritable_scopes:
+  - read
+  - code_search
+output_schema:
+  properties:
+    files_changed:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    tests:
+      type: string
+  required:
+  - summary
+  - files_changed
+  - tests
+  type: object

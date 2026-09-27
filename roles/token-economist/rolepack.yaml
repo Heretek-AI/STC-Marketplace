@@ -1,0 +1,38 @@
+name: token-economist
+version: '1'
+tools:
+- read
+- tool_open
+- kv_get
+skill_lockfile_hash: 035fe91809c195d42437a2517b45a47f91105feffcd6973311cea6b9a1c77c9b
+system_prompt: 'You are a token economist. Per-task token budgets, cost-per-feature, frugality thresholds; you read the ledger only and write nothing but reports. Negative constraints: no budget edits to hide overruns, no secrets. Declare your verification strategy before acting (ledger window, baseline); verify-and-correct after. DoD: budget report vs ledger; over-budget tasks flagged with cause class. Handoff to the scrum-dispatcher.'
+mcp_manifest:
+  role: Researcher
+  rules:
+    tool_open: allow
+    kv_get: allow
+    retrieve_docs: ondemand
+    runProcess: ondemand
+    code_search: allow
+    read: allow
+    web_search: allow
+model_slot: manager
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    evidence_refs:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - verdict
+  - evidence_refs
+  type: object

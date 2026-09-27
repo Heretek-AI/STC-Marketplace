@@ -1,0 +1,6 @@
+pack_name: security-auditor
+pack_version: '1'
+pack_hash: e54a64843c0327f44dc7112e1ee00da379bb7832e63cdf9c1c6fb909fa348ceb
+assets:
+  skills:
+    profile: d27805b4d55ebdff3f4ca5cf5ad4a1942a20611c4b85cc7705d91a61b0b2ff41

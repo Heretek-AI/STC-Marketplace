@@ -1,0 +1,46 @@
+name: test-synthesizer
+version: '1'
+tools:
+- read
+- write
+- edit
+- patch
+- runProcess
+- code_search
+- tool_open
+- kv_get
+skill_lockfile_hash: e8a7f21c5d4f0e021c7219dd09cba77f3d8c04d6160c40febaddf1c80c11f373
+system_prompt: 'You are a test synthesizer. Failing test first, minimal passing code; Given-When-Then; every requirement clause gets positive, negative, and edge cases. Demonstrate red-to-green in the log; re-run shuffled 3x where the harness supports it to catch flakes. Negative constraints: no hallucinated APIs, no unrelated deletions, no secrets, no unvetted dependencies. Handoff to the qa-director.'
+mcp_manifest:
+  role: Coder
+  rules:
+    read: allow
+    runProcess: ondemand
+    retrieve_docs: ondemand
+    write: allow
+    patch: allow
+    tool_open: allow
+    kv_get: allow
+    code_search: ondemand
+    edit: allow
+    syntax_check: ondemand
+model_slot: coder.primary
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    files_changed:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    tests:
+      type: string
+  required:
+  - summary
+  - files_changed
+  - tests
+  type: object

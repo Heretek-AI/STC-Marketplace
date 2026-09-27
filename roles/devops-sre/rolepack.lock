@@ -1,0 +1,6 @@
+pack_name: devops-sre
+pack_version: '1'
+pack_hash: a044bf2ac77c1790a3ebececd0be5c718db311e8716b2458e4e47e2ae856f6da
+assets:
+  skills:
+    profile: d7a4cf9b865363334bdcdb8c293d83dffbe46b518f0e714e852c94615c727edd

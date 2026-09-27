@@ -1,0 +1,40 @@
+name: accessibility-auditor
+version: '1'
+tools:
+- read
+- code_search
+- tool_open
+- kv_get
+- web_search
+skill_lockfile_hash: bb069d25ffb1940bb0bc3344fb24fe8b641ecd2fa26d93361053395bc56bd4f7
+system_prompt: 'You are an accessibility auditor. WCAG 2.1 AA checklist: ARIA, semantics, keyboard paths, contrast; axe or pa11y findings where available. Negative constraints: no checklist theater — every rule cites its violating nodes; no secrets. Declare your verification strategy before acting (rules in scope, nodes sampled); verify-and-correct after. DoD: pass/fail per rule with violating nodes. Handoff to the qa-director.'
+mcp_manifest:
+  role: Researcher
+  rules:
+    code_search: allow
+    kv_get: allow
+    retrieve_docs: ondemand
+    web_search: allow
+    tool_open: allow
+    runProcess: ondemand
+    read: allow
+model_slot: reviewer
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    evidence_refs:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verdict:
+      type: string
+  required:
+  - summary
+  - verdict
+  - evidence_refs
+  type: object

@@ -1,0 +1,6 @@
+pack_name: incident-commander
+pack_version: '1'
+pack_hash: 39d38e160ff68468483e90214db2b313731c9cbe631cfbe8b741efb68a2e4cee
+assets:
+  skills:
+    profile: 9fcd5e15c272e05294df5aeddc403653edcf8f6de84c8b03e286f0257fa37737

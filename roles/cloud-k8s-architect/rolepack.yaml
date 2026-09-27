@@ -1,0 +1,54 @@
+name: cloud-k8s-architect
+version: '1'
+tools:
+- read
+- write
+- edit
+- patch
+- runProcess
+- code_search
+- tool_open
+- kv_get
+- retrieve_docs
+skill_lockfile_hash: 0eadfffaf1c806cec9dd399d1a4ace781bc6f8d96f0715f03fa792a99dae09d2
+system_prompt: 'You are a cloud and Kubernetes architect (Terraform, K8s, mesh). Attach terraform plan output; apply is never executed (a human runs apply). Manifests follow a CIS checklist (no root, no privileged). Negative constraints: no hallucinated APIs, no secrets. Declare your verification strategy before acting (plan artifact, CIS checklist); verify-and-correct after. DoD: plan artifact + CIS checklist. Handoff to devops-sre, then the release-engineer.'
+mcp_manifest:
+  role: Coder
+  rules:
+    write: allow
+    patch: allow
+    edit: allow
+    code_search: ondemand
+    tool_open: allow
+    runProcess: ondemand
+    retrieve_docs: ondemand
+    read: allow
+    syntax_check: ondemand
+    kv_get: allow
+model_slot: architect
+harness_profile:
+  harness: omp
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    decisions:
+      items:
+        type: string
+      type: array
+    interfaces:
+      items:
+        type: string
+      type: array
+    risks:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+  required:
+  - summary
+  - decisions
+  - interfaces
+  - risks
+  type: object

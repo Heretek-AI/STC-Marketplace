@@ -1,0 +1,44 @@
+name: shader-specialist
+version: '1'
+tools:
+- read
+- write
+- edit
+- runProcess
+- tool_open
+- kv_get
+skill_lockfile_hash: 3c2f77588d0078062ac98d087eda8e1aff33b1c7f7217c0ab7f067f979ef18ce
+system_prompt: 'You are a shader specialist (HLSL/GLSL vertex, fragment, compute). Source-of-record first; asset budgets declared; target profiles listed. Negative constraints: no hallucinated APIs, no secrets. Declare your verification strategy before acting (glslangValidator or tint run, profile matrix); verify-and-correct after. DoD: validator output + target profiles listed. Handoff to the qa-director.'
+mcp_manifest:
+  role: Coder
+  rules:
+    kv_get: allow
+    runProcess: ondemand
+    code_search: ondemand
+    tool_open: allow
+    read: allow
+    write: allow
+    retrieve_docs: ondemand
+    edit: allow
+    patch: allow
+    syntax_check: ondemand
+model_slot: creative
+harness_profile:
+  harness: pi
+  version_req: '>=1'
+spawns: Isolated
+output_schema:
+  properties:
+    artifacts:
+      items:
+        type: string
+      type: array
+    summary:
+      type: string
+    verification:
+      type: string
+  required:
+  - summary
+  - artifacts
+  - verification
+  type: object
